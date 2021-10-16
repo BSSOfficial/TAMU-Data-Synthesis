@@ -3,16 +3,38 @@ import time
 
 ###################
 
-url = "https://api.opensea.io/api/v1/events?event_type=successful&only_opensea=false&offset=0&limit=10&occurred_after=2021-10-16T20%3A35%3A43.511Z"
+url = "https://api.opensea.io/api/v1/events?only_opensea=false&offset=0&limit=100&occurred_before=2021-10-16T20%3A35%3A44.511Z&occurred_after=2021-10-16T20%3A35%3A43.511Z"
 headers = {"Accept": "application/json"}
 seenTokens = []
+
+######
+keyQueue = []
+minuteDict = {}
+######
+
+timer = 0
 while(1):
 	response = requests.request("GET",url, headers=headers)
 
 
 	data = response.json()
 	for x in data['asset_events']:
-		if (x['asset']['asset_contract']['symbol']!='OPENSTORE' and (x['asset']['token_id'] not in seenTokens)):
+		if (x['asset']['asset_contract']['symbol']!='OPENSTORE' and (x['asset']['token_id'] not in seenTokens) and x['asset']['asset_contract']['schema_name']=='ERC721'):
+			if (timer<60):
+				#add to 1 minute column
+			if (timer<240):
+				#add to 5 minutes column
+			if (timer<1200):
+				#add to 20 minutes column
+			if (timer<2400):
+				#add to 40 minutes column
+			if (timer<3600):
+				#add to 1 hour column
+
 			print(x['asset']['asset_contract']['address']+" "+ x['asset']['token_id'] +" "+ x['asset']['asset_contract']['symbol'])
 			seenTokens.append(x['asset']['token_id'])
+			######
+			keyQueue.append(timer)
+			minuteDict[timer]={x['asset']['asset_contract']['symbol']}
+			######
 	time.sleep(1)
