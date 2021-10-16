@@ -3,10 +3,7 @@ import time
 
 ###################
 
-#print('Paste the address: ')
-#address = input()
-
-url = "https://api.opensea.io/api/v1/events?only_opensea=false&offset=0&limit=10&occurred_after=2021-10-16T20%3A35%3A43.511Z"
+url = "https://api.opensea.io/api/v1/events?event_type=successful&only_opensea=false&offset=0&limit=10&occurred_after=2021-10-16T20%3A35%3A43.511Z"
 headers = {"Accept": "application/json"}
 seenTokens = []
 while(1):
