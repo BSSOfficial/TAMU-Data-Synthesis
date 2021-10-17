@@ -65,7 +65,9 @@ while(1):
 			if targetTimes[4]+24<timer and targetTimes[4] in timeSymbolDict:
 				symbolCounterDict[timeSymbolDict[targetTimes[4]]][4]-=1;
 				keyQueue5.pop(0)
-		
+				if symbolCounterDict[timeSymbolDict[targetTimes[4]]][4] == 0:
+					symbolCounterDict.pop(timeSymbolDict[targetTimes[4]])
+					timeSymbolDict.pop(targetTimes[4])
 		
 		
 		
