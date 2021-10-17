@@ -37,7 +37,7 @@ def updateTable():
                 ignore_index = True)
         
     
-    range_of_cells = worksheet.range('A2:F30') # Clear the table each time we input data 
+    range_of_cells = worksheet.range('A2:F300') # Clear the table each time we input data 
     for cell in range_of_cells:
         cell.value = ' '
     worksheet.update_cells(range_of_cells)
