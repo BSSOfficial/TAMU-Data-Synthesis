@@ -1,4 +1,4 @@
-In order to run the NFT sales tracker program you must have the following dependencies installed
+fIn order to run the NFT sales tracker program you must have the following dependencies installed
 	- requests
 	- time
 	- pandas
@@ -18,3 +18,5 @@ After following the required dependencies
 	These projects will run on indefinitely until a keyboard interrupt such as ctrl+c, 
 	constantly adding to the csv and google sheets
 	Our graphics are made with the real time data displayed in google sheets as per our demo video.
+
+	If you are interested in seeing the google sheets data run in real time, message Dalton Avery, Tommy Truong, Thanh Nguyen, or Tien Nguyen so we can share the link with you all and run the data, as the google sheets api requires authentication.
