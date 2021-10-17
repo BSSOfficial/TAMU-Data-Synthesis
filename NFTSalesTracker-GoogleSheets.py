@@ -1,14 +1,21 @@
+'''
+THIS IS A DIFFERENT VERSION OF THE ORIGINAL PROGRAM
+THIS VERSION IS MEANT TO SEND LIVE UPDATES TO A GOOGLE SPREADSHEET
+THE MAIN PYTHON FILE WILL HAVE THE COMMENTS, AND THIS FILE WILL HAVE COMMENTS ON THE DIFFERENCES
+'''
+
 import requests
 import time
 import pandas as pd
+# gspread import to upload to google spreadsheets
 import gspread
 from gspread_dataframe import set_with_dataframe
 
 ### ACCESS FROM GOOGLE SHEET ###
 
-gc = gspread.service_account(filename='nftheatmeter-7f2cbfd86b0d.json')
-sh = gc.open_by_key('1fnSM9SgcFgWjXjHVMXWuygeO-3D40-oMz1MQnHx61eo')
-worksheet = sh.get_worksheet(0) ### pull worksheet from google
+gc = gspread.service_account(filename='nftheatmeter-7f2cbfd86b0d.json') # This is the google api json file with the credentials needed for access
+sh = gc.open_by_key('1fnSM9SgcFgWjXjHVMXWuygeO-3D40-oMz1MQnHx61eo') # This is the file ID of the spreadsheet 
+worksheet = sh.get_worksheet(0) # This pulls the worksheet from google
 
 ###################
 
@@ -23,19 +30,19 @@ gatheringData = True
 
 def updateTable():
     global worksheet
-    df = pd.DataFrame(columns = ['Name', 'fiveSecond', 'tenSecond', 'sixtySecond', 'tenMinute', 'thirtyMinute'])
+    df = pd.DataFrame(columns = ['Name', 'fiveSecond', 'tenSecond', 'sixtySecond', 'tenMinute', 'thirtyMinute']) # Shorter time intervals to show frequency
     
     for x in nameCounterDict:
         df = df.append({'Name' : x, 'fiveSecond' : nameCounterDict[x][0], 'tenSecond' : nameCounterDict[x][1], 'sixtySecond' : nameCounterDict[x][2], 'tenMinute' : nameCounterDict[x][3], 'thirtyMinute' : nameCounterDict[x][4]}, 
                 ignore_index = True)
         
     
-    range_of_cells = worksheet.range('A2:F30')
+    range_of_cells = worksheet.range('A2:F30') # Clear the table each time we input data 
     for cell in range_of_cells:
         cell.value = ' '
     worksheet.update_cells(range_of_cells)
     
-    set_with_dataframe(worksheet, df) ### Write to google sheets
+    set_with_dataframe(worksheet, df) # Write to google sheets
 
     print(df.to_string(index=False))
 
