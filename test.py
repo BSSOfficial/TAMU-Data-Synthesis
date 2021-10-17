@@ -1,9 +1,14 @@
+import random
+
+dictTest = {}
 setTest = set()
 
-setTest.add(42)
-setTest.add(32)
-setTest.add(62)
-setTest.add(52)
-setTest.add(32)
+names = ['zed','shs','asdf','name','eman','man','hhhh','your','zip','zag','fizz','buzz','tttt']
 
-print(setTest)
+for x in range(1,100):
+	setTest.add(random.randint(0,4000))
+setTest = sorted(setTest)
+for x in setTest:
+	dictTest[x]=names[random.randint(0,12)]
+
+print(dictTest)
