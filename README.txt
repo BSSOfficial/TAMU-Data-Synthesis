@@ -1,12 +1,12 @@
 fIn order to run the NFT sales tracker program you must have the following dependencies installed
-	- requests
-	- time
-	- pandas
+	- import/install requests
+	- import/install time
+	- import/install pandas
 and depending on where you want to export to (csv, excel, google sheets)
 	CSV/Excel
-	- openpyxl
+	- import/install openpyxl
 	Google Sheets
-	- gspread/gspread_dataframe
+	- import/install gspread/gspread_dataframe
 
 
 After following the required dependencies
