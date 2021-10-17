@@ -8,8 +8,9 @@ headers = {"Accept": "application/json"}
 seenTokens = []
 
 ######
-keyQueue = set()
+keyQueue = []
 minuteDict = {}
+symbolValue = {}
 ######
 
 timer = 0
@@ -35,16 +36,24 @@ while(1):
 			if (timer<3600):
 				pass
 				#add to 1 hour column
-
-			print(x['asset']['asset_contract']['address']+" "+ x['asset']['token_id'] +" "+ x['asset']['asset_contract']['symbol'])
+			symbol = x['asset']['asset_contract']['symbol']
+			print(x['asset']['asset_contract']['address']+" "+ x['asset']['token_id'] +" "+ symbol)
 			seenTokens.append(x['asset']['token_id'])
 			######
-			keyQueue.add(timer)
-			minuteDict[timer]={x['asset']['asset_contract']['symbol']}
+			if timer not in keyQueue:
+				keyQueue.append(timer)
+
+			minuteDict[timer]={symbol}
+			if symbol in symbolValue:
+				symbolValue[symbol] = [x+1 for x in symbolValue[symbol]]
+			else:
+				symbolValue[symbol] = [1,1,1,1,1]
 			######
+
 	timer+=1
 	print(keyQueue)
 	print(minuteDict)
-	print(timer)
+	print(symbolValue)
+
 	time.sleep(1)
 
