@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "seismic-bonfire-275623",
+  "private_key_id": "da7b041444f19c37aa0e186a1827e17f3fc7bf40",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC6ib2fcnvPQRaA\n4rAMWHUd/rkF2nh7ttnBGQL20B+f9g3svhbeXNjj2XdQOdwGhvKCcQSR0mj5n9Vg\n0wWZfJkRs7K9HPPgGYIIV0HSFZJK1b66MRR2aE4BSrwviBb+PalqFUpgo1T+MeUz\n0M/D2w6td8IVCPoeqbsGoqZdv6GnRSDspaDLM1xplwQZBHbdgHrczq3q8B9OZkOc\nZKBUtNb8poNj5gKf9FP5QpxyFMgqOhJIrA6oZrJnCyl5BAGlr1KXd110nTXGsWn4\n0tACOmrmbfysTxTmVtp8RTDmDsxuSfZMFuZr1r55hsTrw02npZKVEpG0QhqEJFp2\nlQC/wimLAgMBAAECggEAJe99MMAHjc6e1PdE9j3HE6KJ3jbf6cj1399GSwtoYw+X\nJV5DKFWZhjzjlt0tceZfy0dQtpcj4iAvNNG1gdFlD8SLxQnuTtThLPER4behWLa/\nYv44OxxbQMgCHWh/xJSlr31E8wJEdq2O/0qn9hzGj2Cbh8ubkkDSWDcbvlUKewmq\nCjdGHpmQMyvWhTOJxlxa4jYC+9fRi/6FzBvWLUBGKHBilqNKsu0i1NsFcOL0kWqx\n0BSNysJUONg0qYeP98kYZsLCN/U1TzdS6NtsxJYx6WTNY1lBvjYqZ/aQ9xx5sFp1\nwUa+GRLwEXEqHzJrSU0Eg+lMpkXEpqgTC2/HCGiYAQKBgQD+wKVP+5aEY7g3jz8s\n9mvAX5MC8VY5Zcni4W04arxk1aLoaNVvou4u+TMC30wxCrzjKiVJLRb0Eezy38PI\n9GamWhGO8+sZ8hycWw0luDc3eb16TxLSfbCNa1XhzXKiJ9cO5JJReGefUVNDI7zW\nQJ4f57EAvcyWWcWmS4jvCNrCSwKBgQC7c5UNs6cCMFtizJLoSokuEfXOSBF/MIXo\nq5GjXCu0Dzl7f7ceFhLxBj+m3eqZMLaXZu6v+3Z8WcvmC/RwBe5Q97p0jv9MnBk3\n8lFjmsgR7yw66KHisBqcZDNc+GPo4FaDTIpu2K1VKWgk9n9ZrKHEGZnLq20CPJCc\nb9VRevutwQKBgQDcCU1AHlBNnUwaQRISJe2/xU1Xd1hAT1jnLEqINjju50/Eafgg\napxL2lZjHrfSjDHGDDsUT2vJ+EmvJfMXeXHIMXeE/82LJYHs0wAyGkEnG3G7WN0r\nDgEWxSTy2d8vjDXG2UpAMD1gcH/4N7/9Vua9LAPIXid9naCIGCn4PK+mrQKBgQCP\nK1VRtMA+/L4ftM4TmzIxPMh3+DVc5quwLLI8ih5bFTG7MK2kzglDi5k8Esymmj0r\nYBO316EEkvUXzFOy5+TAdKU1dy5ozeS5BVvCbqqWgA1RJPLYF9cLUcClJpXwfL+2\n4tPsm5OvssN3T8murRqUk1US6OiGR8nPod7Ur9DgQQKBgQDXqj6UUJSg782Egz+5\nBXH02GECMjYO7bbPrxH1lTDzshlVzDIE0KDDNh+0FX58hzt3eQPhbspoKZUf9gmg\ndTUn4keo8m9yY5nVeSgG3a+9bvIEXlI9gvhJ7OwDIE35uFyLJn9rsdXW5FYSRSRc\nbTRHSQOdnTHgk/ffhjBfuiWhug==\n-----END PRIVATE KEY-----\n",
+  "client_email": "tamudataton@seismic-bonfire-275623.iam.gserviceaccount.com",
+  "client_id": "101048944845297968949",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tamudataton%40seismic-bonfire-275623.iam.gserviceaccount.com"
+}
