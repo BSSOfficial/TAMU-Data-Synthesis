@@ -8,9 +8,14 @@ headers = {"Accept": "application/json"}
 seenTokens = []
 
 ######
-keyQueue = []
-minuteDict = {}
-symbolValue = {}
+keyQueue1 = []
+keyQueue2 = []
+keyQueue3 = []
+keyQueue4 = []
+keyQueue5 = []
+targetTimes = [0]*5
+timeSymbolDict = {}
+symbolCounterDict = {}
 ######
 
 timer = 0
@@ -21,39 +26,55 @@ while(1):
 	data = response.json()
 	for x in data['asset_events']:
 		if (x['asset']['asset_contract']['symbol']!='OPENSTORE' and (x['asset']['token_id'] not in seenTokens) and x['asset']['asset_contract']['schema_name']=='ERC721'):
-			if (timer<60):
-				pass
-				#add to 1 minute column
-			if (timer<240):
-				pass
-				#add to 5 minutes column
-			if (timer<1200):
-				pass
-				#add to 20 minutes column
-			if (timer<2400):
-				pass
-				#add to 40 minutes column
-			if (timer<3600):
-				pass
-				#add to 1 hour column
+			
 			symbol = x['asset']['asset_contract']['symbol']
 			print(x['asset']['asset_contract']['address']+" "+ x['asset']['token_id'] +" "+ symbol)
 			seenTokens.append(x['asset']['token_id'])
 			######
-			if timer not in keyQueue:
-				keyQueue.append(timer)
-
-			minuteDict[timer]={symbol}
-			if symbol in symbolValue:
-				symbolValue[symbol] = [x+1 for x in symbolValue[symbol]]
+			if timer not in keyQueue1 and timer not in keyQueue2 and timer not in keyQueue3 and timer not in keyQueue4 and timer not in keyQueue5:
+				keyQueue1.append(timer)
+				timeSymbolDict[timer]=symbol
+			
+			if symbol in symbolCounterDict:
+				symbolCounterDict[symbol] = [x+1 for x in symbolCounterDict[symbol]]
 			else:
-				symbolValue[symbol] = [1,1,1,1,1]
+				symbolCounterDict[symbol] = [1,1,1,1,1]
 			######
-
+		if len(keyQueue1)>0:
+			targetTimes[0] = keyQueue1[0]
+			if targetTimes[0]+2<timer and targetTimes[0] in timeSymbolDict:
+				symbolCounterDict[timeSymbolDict[targetTimes[0]]][0]-=1;
+				keyQueue2.append(keyQueue1.pop(0))
+		if len(keyQueue2)>0:	
+			targetTimes[1] = keyQueue2[0]
+			if targetTimes[1]+6<timer and targetTimes[1] in timeSymbolDict:
+				symbolCounterDict[timeSymbolDict[targetTimes[1]]][1]-=1;
+				keyQueue3.append(keyQueue2.pop(0))
+		if len(keyQueue3)>0:	
+			targetTimes[2] = keyQueue3[0]
+			if targetTimes[2]+12<timer and targetTimes[2] in timeSymbolDict:
+				symbolCounterDict[timeSymbolDict[targetTimes[2]]][2]-=1;
+				keyQueue4.append(keyQueue3.pop(0))
+		if len(keyQueue4)>0:	
+			targetTimes[3] = keyQueue4[0]
+			if targetTimes[3]+18<timer and targetTimes[3] in timeSymbolDict:
+				symbolCounterDict[timeSymbolDict[targetTimes[3]]][3]-=1;
+				keyQueue5.append(keyQueue4.pop(0))
+		if len(keyQueue5)>0:
+			targetTimes[4] = keyQueue5[0]
+			if targetTimes[4]+24<timer and targetTimes[4] in timeSymbolDict:
+				symbolCounterDict[timeSymbolDict[targetTimes[4]]][4]-=1;
+				keyQueue5.pop(0)
+		
+		
+		
+		
+		
 	timer+=1
-	print(keyQueue)
-	print(minuteDict)
-	print(symbolValue)
+	print([targetTimes[0],targetTimes[1],targetTimes[2],targetTimes[3],targetTimes[4]])
+	print([keyQueue1,keyQueue2,keyQueue3,keyQueue4,keyQueue5])
+	print(timeSymbolDict)
+	print(symbolCounterDict)
 
 	time.sleep(1)
 
